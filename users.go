@@ -88,7 +88,7 @@ type UsersCollector struct {
 func NewUsersCollector() *UsersCollector {
         labels := []string{"user"}
         return &UsersCollector {
-                pending: prometheus.NewDesc("slurm_user_jobs_pending", "Pending jobs for user", labels, nil), 
+                pending: prometheus.NewDesc("slurm_user_jobs_pending", "Pending jobs for user", labels, nil),
                 running: prometheus.NewDesc("slurm_user_jobs_running", "Running jobs for user", labels, nil),
                 running_cpus: prometheus.NewDesc("slurm_user_cpus_running", "Running cpus for user", labels, nil),
                 suspended: prometheus.NewDesc("slurm_user_jobs_suspended", "Suspended jobs for user", labels, nil),
@@ -119,4 +119,3 @@ func (uc *UsersCollector) Collect(ch chan<- prometheus.Metric) {
                 }
         }
 }
-
